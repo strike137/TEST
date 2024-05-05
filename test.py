@@ -4,4 +4,4 @@ def main():
   for num in numbers:
     sum = sum + num
   print(f"Sum of {numbers} = {sum}")
-main()
+main(
