@@ -1,19 +1,22 @@
 import mysql.connector
 
 def getDBConnection():
-    '''
-    Return a MySQL database connection.
-    '''
+    # Establishing a connection to the MySQL database
     try:
-        # Modify the following parameters according to your MySQL server configuration
         connection = mysql.connector.connect(
-            host="localhost",
+            host="your_host",
             user="your_username",
             password="your_password",
             database="your_database"
         )
-        print("Connection established successfully!")
+        print("Connected to MySQL database")
         return connection
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
+    except mysql.connector.Error as e:
+        print(f"Error connecting to MySQL database: {e}")
         return None
+
+# Example usage:
+# connection = getDBConnection()
+# if connection:
+#     # Proceed with database operations
+#     pass
