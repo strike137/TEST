@@ -1,7 +1,13 @@
-import mysql.connector
+from flask import Flask, redirect
 
-def getDBConnection():
-    # Specify your database credentials
-    config = {
-        'user': 'your_username',
-        'password': 'your_password',
+app = Flask(__name__)
+
+@app.route('/redirect/<path:url>')
+def redirect_invalid_url(url):
+    if 'example.com' in url:
+        return redirect(url)
+    else:
+        return 'Error: Invalid URL'
+
+if __name__ == '__main__':
+    app.run(debug=True)
